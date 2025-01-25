@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[var(--dark-bg)] text-white;
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+/* Grid Background */
+.grid-bg {
+  background-image:
+          linear-gradient(var(--neon-blue) 1px, transparent 1px),
+          linear-gradient(90deg, var(--neon-blue) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+}
+
+/* Cyber Orb */
+.cyber-orb {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--neon-blue), var(--neon-pink));
+  border-radius: 50%;
+  box-shadow:
+          0 0 20px var(--neon-blue),
+          0 0 40px var(--neon-pink);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}

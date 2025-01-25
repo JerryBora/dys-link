@@ -1,23 +1,13 @@
-// tailwind.config.js
 module.exports = {
-    content: [
-      "./src/**/*.{js,jsx,ts,tsx}",
-      "./public/index.html"
-    ],
+    content: ["./src/**/*.{js,jsx}"],
     theme: {
-      extend: {
-        animation: {
-          scan: 'scan 4s linear infinite',
+        extend: {
+            colors: {
+                'dark-bg': 'var(--dark-bg)',
+                'neon-pink': 'var(--neon-pink)',
+                'neon-blue': 'var(--neon-blue)',
+            },
         },
-        keyframes: {
-          scan: {
-            '0%': { backgroundPosition: '0 -100%' },
-            '100%': { backgroundPosition: '0 100%' },
-          }
-        }
-      }
     },
-    plugins: [
-      require('@tailwindcss/forms'),
-    ],
-  }
+    plugins: [],
+}

@@ -1,20 +1,20 @@
-import './styles/index.css';
-import './styles/cyberpunk.css';
-
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import CRTOverlay from './components/CRTOverlay';
 import Home from './pages/Home';
+import Login from './pages/Login';
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+export default function App() {
+    return (
+        <div className="cyber-container">
+            <Navbar />
+            <main className="pt-20"> {/* Adjusted for fixed navbar */}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                </Routes>
+            </main>
+            <CRTOverlay />
+        </div>
+    );
 }
-
-export default App;
