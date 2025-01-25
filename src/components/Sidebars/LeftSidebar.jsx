@@ -1,38 +1,41 @@
-// src/components/LeftSidebar.jsx
-export default function LeftSidebar() {
+import React from 'react';
+import '../../styles/cyberpunk.css';
+
+const LeftSidebar = () => {
     return (
-        <div className="cyber-sidebar neon-border-l p-4">
-            {/* Profile Card */}
-            <div className="cyber-profile mb-6">
-                <div className="glitch-avatar"></div>
-                <h2 className="glitch-text mt-4">NEURAL_OPERATOR_42</h2>
-                <p className="text-neon-blue">Augmented Developer @ NeuroCorp</p>
+        <div className="leftSidebar">
+            <div className="leftSidebar__profile">
+                <img src="profile.jpg" alt="Profile" className="leftSidebar__profilePic" />
+                <div className="leftSidebar__profileInfo">
+                    <h2 className="leftSidebar__profileName">Your Name</h2>
+                    <p className="leftSidebar__profileStatus">Status: Data in transit...</p>
+                </div>
             </div>
 
-            {/* Navigation */}
-            <nav className="cyber-nav mb-8">
-                <ul className="space-y-3">
-                    {['Neural Feed', 'Implant Network', 'Cortical Analytics', 'Encrypted Comms'].map((item) => (
-                        <li key={item} className="group">
-                            <button className="cyber-nav-btn">
-                                <span className="group-hover:text-neon-pink">{item}</span>
-                                <div className="nav-glow"></div>
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
-
-            {/* Neural Links */}
-            <div className="connections">
-                <h3 className="cyber-subheader">NEURAL LINKS</h3>
-                {['CircuitBreaker', 'Ghost_InShell', 'Zero_Cool'].map((name) => (
-                    <div key={name} className="connection-item">
-                        <div className="status-indicator online"></div>
-                        <p className="text-neon-cyan">{name}</p>
-                    </div>
-                ))}
+            <div className="leftSidebar__nav">
+                <div className="leftSidebar__navItem">
+                    <span className="leftSidebar__navIcon">🏠</span>
+                    <span className="leftSidebar__navText">Home</span>
+                </div>
+                <div className="leftSidebar__navItem">
+                    <span className="leftSidebar__navIcon">🔗</span>
+                    <span className="leftSidebar__navText">Network</span>
+                </div>
+                <div className="leftSidebar__navItem">
+                    <span className="leftSidebar__navIcon">📩</span>
+                    <span className="leftSidebar__navText">Messages</span>
+                </div>
+                <div className="leftSidebar__navItem">
+                    <span className="leftSidebar__navIcon">💼</span>
+                    <span className="leftSidebar__navText">Jobs</span>
+                </div>
+                <div className="leftSidebar__navItem">
+                    <span className="leftSidebar__navIcon">⚙️</span>
+                    <span className="leftSidebar__navText">Settings</span>
+                </div>
             </div>
         </div>
     );
-}
+};
+
+export default LeftSidebar;

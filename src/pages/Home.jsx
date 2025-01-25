@@ -10,7 +10,7 @@ import CRTOverlay from '../components/CRTOverlay';
 export default function Home() {
     return (
         <div className="cyber-container relative min-h-screen">
-            <Navbar />
+
 
             <main className="grid grid-cols-12 gap-6 pt-20 px-4">
                 {/* Left Sidebar - Connections */}

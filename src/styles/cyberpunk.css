@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /* src/styles/cyberpunk.css */
+/* cyberpunk.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 /* Core Cyberpunk Variables */
 :root {
   --neon-pink: #ff00ff;
@@ -6,160 +9,207 @@
   --neon-cyan: #00ffef;
   --dark-bg: #0a0a0a;
   --cyber-black: #000;
+  --z-index-sidebar: 10;
+  --z-index-main: 5;
 }
 
-/* Base Overrides */
+/* General styles for the entire project */
 body {
-  background: var(--dark-bg) !important;
-  color: var(--neon-cyan) !important;
   font-family: 'Orbitron', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--neon-cyan);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-/* LinkedIn Structure Preservation with Cyberpunk Flair */
-.app {
-  position: relative;
-  min-height: 100vh;
-}
-
-.app__body {
-  display: flex;
-  padding-top: 80px;
-}
-
-/* Header Mods */
-.header {
-  background: var(--cyber-black) !important;
-  border-bottom: 2px solid var(--neon-pink) !important;
-}
-
-.header__logo {
-  filter: drop-shadow(0 0 5px var(--neon-blue));
-}
-
-.header__search {
-  background: rgba(0, 255, 255, 0.1) !important;
-  border: 1px solid var(--neon-blue) !important;
-}
-
-.headerOption {
-  color: var(--neon-cyan) !important;
-}
-
-.headerOption:hover {
-  color: var(--neon-pink) !important;
-}
-/* src/styles/cyberpunk.css */
-/* Sidebar */
-.cyber-sidebar {
-  background: linear-gradient(160deg, rgba(10,10,10,0.95) 0%, rgba(0,0,0,0.95) 100%);
-}
-
-.neon-border-l {
-  border-left: 2px solid var(--neon-blue);
-  box-shadow: -15px 0 25px -10px var(--neon-pink);
-}
-
-/* Posts */
-.cyber-post {
-  background: rgba(0,0,0,0.8);
-  border: 1px solid var(--neon-pink);
-}
-
-.cyber-post:hover {
-  box-shadow: 0 0 25px rgba(255,0,255,0.2);
-}
-/* Sidebar Mods */
-.sidebar {
-  background: linear-gradient(
-          160deg,
-          rgba(10, 10, 10, 0.95) 0%,
-          rgba(0, 0, 0, 0.95) 100%
-  ) !important;
-  border-right: 2px solid var(--neon-blue);
-}
-
-.sidebar__top > h4 {
-  color: var(--neon-pink) !important;
-}
-
-.sidebar__stat {
-  background: rgba(0, 255, 255, 0.05) !important;
-}
-
-/* Feed */
-.feed {
-  flex: 0.6 !important;
-  margin: 0 20px !important;
-}
-
-.cyber-feed {
-  background: rgba(10, 10, 10, 0.9) !important;
-  border: 1px solid var(--neon-pink);
-  border-radius: 10px;
-  padding: 20px !important;
-}
-
-.cyber-input {
-  background: rgba(0, 255, 255, 0.05) !important;
-  border: 1px solid var(--neon-blue) !important;
-  color: var(--neon-cyan) !important;
-  padding: 12px !important;
-  width: 100%;
-}
-/* Feed Mods */
-.feed {
-  background: rgba(10, 10, 10, 0.9) !important;
-  border: 1px solid var(--neon-pink);
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.1);
-}
-
-.inputOption {
-  border: 1px solid rgba(0, 255, 255, 0.2) !important;
-}
-
-.inputOption:hover {
-  background: rgba(255, 0, 255, 0.05) !important;
-}
-
-/* Post Mods */
-.post {
-  background: rgba(0, 0, 0, 0.8) !important;
-  border: 1px solid var(--neon-blue);
-  margin-bottom: 15px;
-}
-
-.post__header > h3 {
-  color: var(--neon-pink) !important;
-}
-
-/* Widgets Mods */
-.widgets {
-  border-left: 2px solid var(--neon-pink);
-  background: linear-gradient(
-          20deg,
-          rgba(10, 10, 10, 0.95) 0%,
-          rgba(0, 0, 0, 0.95) 100%
-  ) !important;
-}
-
-/* CRT Overlay */
-.crt-overlay {
+/* Sidebar styles */
+.sidebar-left, .sidebar-right {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 250px;
   height: 100%;
-  background: repeating-linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.15) 0px,
-          rgba(0, 0, 0, 0.15) 1px,
-          transparent 1px,
-          transparent 2px
-  );
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: overlay;
-  opacity: 0.2;
+  background: linear-gradient(45deg, var(--cyber-black), var(--dark-bg));
+  z-index: var(--z-index-sidebar);
+  padding: 1rem;
+  box-shadow: 0px 0px 10px var(--neon-blue);
+  overflow-y: auto;
+}
+
+.sidebar-left {
+  left: 0;
+}
+
+.sidebar-right {
+  right: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-left ul, .sidebar-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-left li, .sidebar-right li {
+  padding: 0.8rem 0;
+}
+
+.sidebar-left a, .sidebar-right a {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  display: block;
+  font-size: 1.2rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.sidebar-left a:hover, .sidebar-right a:hover {
+  color: var(--neon-pink);
+}
+
+/* Main content styles */
+main {
+  margin-left: 270px;
+  margin-right: 270px;
+  padding: 2rem;
+  position: relative;
+  z-index: var(--z-index-main);
+}
+
+main h1 {
+  font-size: 2rem;
+  text-shadow: 0px 0px 5px var(--neon-blue);
+  margin-bottom: 1rem;
+}
+
+/* Navbar styles */
+nav {
+  background-color: var(--cyber-black);
+  color: var(--neon-cyan);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 3px solid var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-blue);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: var(--z-index-sidebar);
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: var(--neon-cyan);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease-in-out;
+}
+
+nav button:hover {
+  color: var(--neon-pink);
+}
+
+nav button span {
+  margin-left: 0.5rem;
+}
+
+/* Search bar */
+nav .search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+nav .search-bar input {
+  width: 100%;
+  background: rgba(0, 255, 255, 0.05);
+  border: 2px solid var(--neon-blue);
+  border-radius: 5px;
+  padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  color: var(--neon-cyan);
+}
+
+nav .search-bar input:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+}
+
+nav .search-bar svg {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: var(--neon-blue);
+}
+
+/* Buttons */
+button {
+  background: rgba(0, 255, 255, 0.05);
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-blue);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--neon-pink);
+  color: var(--dark-bg);
+  filter: drop-shadow(0 0 5px var(--neon-pink));
+}
+
+/* Brutalist box styles */
+.card {
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--neon-cyan);
+  border: 3px solid var(--neon-pink);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 3px 3px 0 var(--neon-pink), 6px 6px 0 var(--neon-blue);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  border-bottom: 2px solid var(--neon-cyan);
+  padding-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-bg);
+  color: var(--neon-cyan);
+  text-align: center;
+  padding: 1rem;
+  border-top: 3px solid var(--neon-pink);
+}
+
+footer a {
+  color: var(--neon-pink);
+}
+
+footer a:hover {
+  color: var(--neon-cyan);
 }
 
 /* Cyberpunk Animations */
@@ -176,52 +226,20 @@ body {
   animation: glitch 3s infinite;
 }
 
-/* Button Effects */
-button, .MuiButton-root {
-  transition: all 0.3s ease !important;
+/* Sidebar fixes */
+.sidebar-left {
+  z-index: var(--z-index-sidebar);
 }
 
-button:hover, .MuiButton-root:hover {
-  filter: drop-shadow(0 0 5px var(--neon-pink));
+.sidebar-right {
+  z-index: var(--z-index-sidebar);
 }
 
-/* Text Enhancements */
-h1, h2, h3, h4 {
-  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+.card a {
+  color: var(--neon-cyan);
 }
 
-/* Input Fields */
-input, textarea {
-  background: rgba(0, 255, 255, 0.05) !important;
-  border: 1px solid var(--neon-blue) !important;
-  color: var(--neon-cyan) !important;
+.card a:hover {
+  color: var(--neon-pink);
 }
 
-/* src/styles/cyberpunk.css */
-/* Header */
-.header {
-  background: var(--dark-bg) !important;
-  border-bottom: 2px solid var(--neon-pink) !important;
-  padding: 0 20px !important;
-}
-
-.header__logo {
-  filter: drop-shadow(0 0 8px var(--neon-blue)) !important;
-  height: 34px !important;
-}
-
-.header__search {
-  background: rgba(0, 255, 255, 0.05) !important;
-  border: 1px solid var(--neon-blue) !important;
-  color: var(--neon-cyan) !important;
-  border-radius: 4px !important;
-}
-
-.headerOption {
-  color: var(--neon-cyan) !important;
-}
-
-.headerOption:hover {
-  color: var(--neon-pink) !important;
-  background: rgba(255, 0, 255, 0.05) !important;
-}

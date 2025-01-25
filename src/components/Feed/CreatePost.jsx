@@ -1,9 +1,9 @@
 // src/components/CreatePost.jsx
 export default function CreatePost() {
     return (
-        <div className="cyber-post-create mb-6 border-2 border-neon-blue rounded-lg p-4 neon-glow">
+        <div className="cyber-post-create mb-6 border-2 border-neon-blue rounded-lg p-6 neon-glow">
             <div className="flex items-center gap-4 mb-4">
-                <div className="cyber-avatar-small border-2 border-neon-pink w-12 h-12 rounded-full"></div>
+                <div className="cyber-avatar-small border-2 border-neon-pink w-14 h-14 rounded-full"></div>
                 <div className="flex-1 relative">
                     <input
                         type="text"
@@ -16,14 +16,14 @@ export default function CreatePost() {
 
             <div className="flex justify-between items-center">
                 <div className="flex gap-4">
-                    <button className="holographic-button px-3 py-1 text-sm">
+                    <button className="holographic-button px-4 py-2 text-sm transition-colors">
                         <span className="text-neon-blue">📡</span> LIVE FEED
                     </button>
-                    <button className="holographic-button px-3 py-1 text-sm">
+                    <button className="holographic-button px-4 py-2 text-sm transition-colors">
                         <span className="text-neon-pink">🔗</span> ATTACH N-LINK
                     </button>
                 </div>
-                <button className="cyber-button px-6 py-2 text-neon-blue hover:text-neon-pink transition-colors">
+                <button className="cyber-button px-8 py-3 text-neon-blue hover:text-neon-pink transition-colors">
                     BROADCAST
                 </button>
             </div>
