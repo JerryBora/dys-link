@@ -6,9 +6,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import './styles/index.css';
 import './styles/cyberpunk.css';
+import {PostProvider} from "./contexts/PostContext";
 
 function App() {
     return (
+       <PostProvider>
         <div className="cyber-container">
             <Navbar />
             <main className="pt-20"> {/* Increased padding for navbar */}
@@ -19,6 +21,7 @@ function App() {
             </main>
             <CRTOverlay />
         </div>
+       </PostProvider>
     );
 }
 
