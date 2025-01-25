@@ -1,10 +1,11 @@
+/* ===== Cyberpunk Core Styles ===== */
 :root {
   --neon-pink: #ff00ff;
   --neon-blue: #00ffff;
   --dark-bg: #0a0a0a;
 }
 
-/* CRT Effect */
+/* === Global Effects === */
 .crt-overlay {
   position: fixed;
   top: 0;
@@ -24,10 +25,11 @@
   opacity: 0.3;
 }
 
-/* Glitch Animation */
+/* === Text Effects === */
 .glitch-text {
   position: relative;
   animation: glitch 2s infinite;
+  text-shadow: 2px 2px var(--neon-blue), -2px -2px var(--neon-pink);
 }
 
 @keyframes glitch {
@@ -39,7 +41,50 @@
   100% { transform: translate(0); }
 }
 
-/* Cyber Button */
+.neon-text-outline {
+  text-shadow:
+          -1px -1px 0 var(--neon-blue),
+          1px -1px 0 var(--neon-blue),
+          -1px 1px 0 var(--neon-blue),
+          1px 1px 0 var(--neon-blue);
+}
+
+/* === UI Components === */
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-blue);
+}
+.status-indicator.online { background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
+.status-indicator.away { background: #ff0; box-shadow: 0 0 10px #ff0; }
+.status-indicator.busy { background: #f00; box-shadow: 0 0 10px #f00; }
+
+.cyber-border {
+  border: 1px solid var(--neon-blue);
+  border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-blue)) 1;
+}
+
+.neon-glow {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.integrity-bar {
+  width: 100px;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+}
+.integrity-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: var(--integrity);
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+  animation: integrity-glow 2s infinite;
+}
+
 .cyber-button {
   background: var(--dark-bg);
   border: 2px solid var(--neon-pink);
@@ -48,9 +93,161 @@
   overflow: hidden;
   transition: all 0.3s ease;
 }
-
 .cyber-button:hover {
   box-shadow: 0 0 15px var(--neon-pink);
 }
+.cyber-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 45%, var(--neon-pink) 50%, transparent 55%);
+  animation: scan 2s infinite linear;
+}
 
-/* Add remaining styles from previous answer */
+/* === Animations === */
+@keyframes scan {
+  0% { transform: rotate(45deg) translateY(-200%); }
+  100% { transform: rotate(45deg) translateY(200%); }
+}
+
+@keyframes integrity-glow {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes post-glow {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.cyber-orb {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--neon-blue), var(--neon-pink));
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* === Typography === */
+.cyber-list li {
+  position: relative;
+  padding-left: 20px;
+}
+.cyber-list li::before {
+  content: '⟁';
+  position: absolute;
+  left: 0;
+  color: var(--neon-pink);
+}
+
+/* === Backgrounds === */
+.grid-bg {
+  background-image:
+          linear-gradient(var(--neon-blue) 1px, transparent 1px),
+          linear-gradient(90deg, var(--neon-blue) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(20px); }
+}
+
+/* === Font Import === */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+/* Create Post Specific Styles */
+.cyber-post-create {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-post-create::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+          45deg,
+          transparent 45%,
+          var(--neon-blue) 50%,
+          transparent 55%
+  );
+  animation: scan 6s infinite linear;
+  opacity: 0.1;
+}
+
+.glitch-overlay {
+  pointer-events: none;
+  background: linear-gradient(
+          90deg,
+          var(--neon-pink) 0%,
+          transparent 50%,
+          var(--neon-blue) 100%
+  );
+  mix-blend-mode: screen;
+}
+
+.cyber-post-create input::placeholder {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.holographic-button {
+  background: linear-gradient(45deg,
+  var(--neon-pink) 0%,
+  var(--neon-blue) 100%
+  );
+  background-size: 200% 200%;
+  border: none;
+  color: var(--dark-bg);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  animation: hologram 4s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.2),
+          transparent
+  );
+  animation: hologram-scan 2s infinite;
+}
+
+@keyframes hologram {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes hologram-scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

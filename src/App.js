@@ -1,14 +1,17 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CRTOverlay from './components/CRTOverlay';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import './styles/index.css';
+import './styles/cyberpunk.css';
 
-export default function App() {
+function App() {
     return (
         <div className="cyber-container">
             <Navbar />
-            <main className="pt-20"> {/* Adjusted for fixed navbar */}
+            <main className="pt-20"> {/* Increased padding for navbar */}
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
@@ -18,3 +21,5 @@ export default function App() {
         </div>
     );
 }
+
+export default App;

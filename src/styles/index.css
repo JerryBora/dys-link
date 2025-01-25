@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-[var(--dark-bg)] text-white;
-    font-family: 'Orbitron', sans-serif;
-  }
+body {
+  @apply bg-dark-bg text-white;
+  font-family: 'Orbitron', sans-serif;
 }
+
 /* Grid Background */
 .grid-bg {
   background-image:
