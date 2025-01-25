@@ -1,11 +1,148 @@
-/* ===== Cyberpunk Core Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /* src/styles/cyberpunk.css */
+/* Core Cyberpunk Variables */
 :root {
   --neon-pink: #ff00ff;
   --neon-blue: #00ffff;
+  --neon-cyan: #00ffef;
   --dark-bg: #0a0a0a;
+  --cyber-black: #000;
 }
 
-/* === Global Effects === */
+/* Base Overrides */
+body {
+  background: var(--dark-bg) !important;
+  color: var(--neon-cyan) !important;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* LinkedIn Structure Preservation with Cyberpunk Flair */
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.app__body {
+  display: flex;
+  padding-top: 80px;
+}
+
+/* Header Mods */
+.header {
+  background: var(--cyber-black) !important;
+  border-bottom: 2px solid var(--neon-pink) !important;
+}
+
+.header__logo {
+  filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+.header__search {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border: 1px solid var(--neon-blue) !important;
+}
+
+.headerOption {
+  color: var(--neon-cyan) !important;
+}
+
+.headerOption:hover {
+  color: var(--neon-pink) !important;
+}
+/* src/styles/cyberpunk.css */
+/* Sidebar */
+.cyber-sidebar {
+  background: linear-gradient(160deg, rgba(10,10,10,0.95) 0%, rgba(0,0,0,0.95) 100%);
+}
+
+.neon-border-l {
+  border-left: 2px solid var(--neon-blue);
+  box-shadow: -15px 0 25px -10px var(--neon-pink);
+}
+
+/* Posts */
+.cyber-post {
+  background: rgba(0,0,0,0.8);
+  border: 1px solid var(--neon-pink);
+}
+
+.cyber-post:hover {
+  box-shadow: 0 0 25px rgba(255,0,255,0.2);
+}
+/* Sidebar Mods */
+.sidebar {
+  background: linear-gradient(
+          160deg,
+          rgba(10, 10, 10, 0.95) 0%,
+          rgba(0, 0, 0, 0.95) 100%
+  ) !important;
+  border-right: 2px solid var(--neon-blue);
+}
+
+.sidebar__top > h4 {
+  color: var(--neon-pink) !important;
+}
+
+.sidebar__stat {
+  background: rgba(0, 255, 255, 0.05) !important;
+}
+
+/* Feed */
+.feed {
+  flex: 0.6 !important;
+  margin: 0 20px !important;
+}
+
+.cyber-feed {
+  background: rgba(10, 10, 10, 0.9) !important;
+  border: 1px solid var(--neon-pink);
+  border-radius: 10px;
+  padding: 20px !important;
+}
+
+.cyber-input {
+  background: rgba(0, 255, 255, 0.05) !important;
+  border: 1px solid var(--neon-blue) !important;
+  color: var(--neon-cyan) !important;
+  padding: 12px !important;
+  width: 100%;
+}
+/* Feed Mods */
+.feed {
+  background: rgba(10, 10, 10, 0.9) !important;
+  border: 1px solid var(--neon-pink);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.inputOption {
+  border: 1px solid rgba(0, 255, 255, 0.2) !important;
+}
+
+.inputOption:hover {
+  background: rgba(255, 0, 255, 0.05) !important;
+}
+
+/* Post Mods */
+.post {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid var(--neon-blue);
+  margin-bottom: 15px;
+}
+
+.post__header > h3 {
+  color: var(--neon-pink) !important;
+}
+
+/* Widgets Mods */
+.widgets {
+  border-left: 2px solid var(--neon-pink);
+  background: linear-gradient(
+          20deg,
+          rgba(10, 10, 10, 0.95) 0%,
+          rgba(0, 0, 0, 0.95) 100%
+  ) !important;
+}
+
+/* CRT Overlay */
 .crt-overlay {
   position: fixed;
   top: 0;
@@ -22,232 +159,69 @@
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: overlay;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
-/* === Text Effects === */
-.glitch-text {
-  position: relative;
-  animation: glitch 2s infinite;
-  text-shadow: 2px 2px var(--neon-blue), -2px -2px var(--neon-pink);
-}
-
+/* Cyberpunk Animations */
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+  0% { text-shadow: 2px 2px var(--neon-blue), -2px -2px var(--neon-pink); }
+  20% { text-shadow: -3px 3px var(--neon-blue), 3px -3px var(--neon-pink); }
+  40% { text-shadow: 3px -3px var(--neon-blue), -3px 3px var(--neon-pink); }
+  60% { text-shadow: -2px -2px var(--neon-blue), 2px 2px var(--neon-pink); }
+  80% { text-shadow: 3px 3px var(--neon-blue), -3px -3px var(--neon-pink); }
+  100% { text-shadow: 2px 2px var(--neon-blue), -2px -2px var(--neon-pink); }
 }
 
-.neon-text-outline {
-  text-shadow:
-          -1px -1px 0 var(--neon-blue),
-          1px -1px 0 var(--neon-blue),
-          -1px 1px 0 var(--neon-blue),
-          1px 1px 0 var(--neon-blue);
+.glitch-text {
+  animation: glitch 3s infinite;
 }
 
-/* === UI Components === */
-.status-indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid var(--neon-blue);
-}
-.status-indicator.online { background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
-.status-indicator.away { background: #ff0; box-shadow: 0 0 10px #ff0; }
-.status-indicator.busy { background: #f00; box-shadow: 0 0 10px #f00; }
-
-.cyber-border {
-  border: 1px solid var(--neon-blue);
-  border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-blue)) 1;
+/* Button Effects */
+button, .MuiButton-root {
+  transition: all 0.3s ease !important;
 }
 
-.neon-glow {
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+button:hover, .MuiButton-root:hover {
+  filter: drop-shadow(0 0 5px var(--neon-pink));
 }
 
-.integrity-bar {
-  width: 100px;
-  height: 4px;
-  background: rgba(255,255,255,0.1);
-  position: relative;
-}
-.integrity-bar::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: var(--integrity);
-  background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
-  animation: integrity-glow 2s infinite;
+/* Text Enhancements */
+h1, h2, h3, h4 {
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
 }
 
-.cyber-button {
-  background: var(--dark-bg);
-  border: 2px solid var(--neon-pink);
-  color: var(--neon-blue);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.cyber-button:hover {
-  box-shadow: 0 0 15px var(--neon-pink);
-}
-.cyber-button::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent 45%, var(--neon-pink) 50%, transparent 55%);
-  animation: scan 2s infinite linear;
+/* Input Fields */
+input, textarea {
+  background: rgba(0, 255, 255, 0.05) !important;
+  border: 1px solid var(--neon-blue) !important;
+  color: var(--neon-cyan) !important;
 }
 
-/* === Animations === */
-@keyframes scan {
-  0% { transform: rotate(45deg) translateY(-200%); }
-  100% { transform: rotate(45deg) translateY(200%); }
+/* src/styles/cyberpunk.css */
+/* Header */
+.header {
+  background: var(--dark-bg) !important;
+  border-bottom: 2px solid var(--neon-pink) !important;
+  padding: 0 20px !important;
 }
 
-@keyframes integrity-glow {
-  0% { opacity: 0.8; }
-  50% { opacity: 1; }
-  100% { opacity: 0.8; }
+.header__logo {
+  filter: drop-shadow(0 0 8px var(--neon-blue)) !important;
+  height: 34px !important;
 }
 
-@keyframes post-glow {
-  0% { left: -100%; }
-  100% { left: 200%; }
+.header__search {
+  background: rgba(0, 255, 255, 0.05) !important;
+  border: 1px solid var(--neon-blue) !important;
+  color: var(--neon-cyan) !important;
+  border-radius: 4px !important;
 }
 
-.cyber-orb {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, var(--neon-blue), var(--neon-pink));
-  border-radius: 50%;
-  box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
-  animation: pulse 2s infinite;
+.headerOption {
+  color: var(--neon-cyan) !important;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-/* === Typography === */
-.cyber-list li {
-  position: relative;
-  padding-left: 20px;
-}
-.cyber-list li::before {
-  content: '⟁';
-  position: absolute;
-  left: 0;
-  color: var(--neon-pink);
-}
-
-/* === Backgrounds === */
-.grid-bg {
-  background-image:
-          linear-gradient(var(--neon-blue) 1px, transparent 1px),
-          linear-gradient(90deg, var(--neon-blue) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.1;
-  animation: gridMove 20s linear infinite;
-}
-
-@keyframes gridMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(20px); }
-}
-
-/* === Font Import === */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-/* Create Post Specific Styles */
-.cyber-post-create {
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(5px);
-  position: relative;
-  overflow: hidden;
-}
-
-.cyber-post-create::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-          45deg,
-          transparent 45%,
-          var(--neon-blue) 50%,
-          transparent 55%
-  );
-  animation: scan 6s infinite linear;
-  opacity: 0.1;
-}
-
-.glitch-overlay {
-  pointer-events: none;
-  background: linear-gradient(
-          90deg,
-          var(--neon-pink) 0%,
-          transparent 50%,
-          var(--neon-blue) 100%
-  );
-  mix-blend-mode: screen;
-}
-
-.cyber-post-create input::placeholder {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.holographic-button {
-  background: linear-gradient(45deg,
-  var(--neon-pink) 0%,
-  var(--neon-blue) 100%
-  );
-  background-size: 200% 200%;
-  border: none;
-  color: var(--dark-bg);
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-weight: bold;
-  animation: hologram 4s ease infinite;
-  position: relative;
-  overflow: hidden;
-}
-
-.holographic-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,255,255,0.2),
-          transparent
-  );
-  animation: hologram-scan 2s infinite;
-}
-
-@keyframes hologram {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes hologram-scan {
-  0% { left: -100%; }
-  100% { left: 100%; }
+.headerOption:hover {
+  color: var(--neon-pink) !important;
+  background: rgba(255, 0, 255, 0.05) !important;
 }

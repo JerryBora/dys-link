@@ -1,4 +1,4 @@
-import JobCard from './JobCard';
+import JobCard from './Feed/JobCard';
 
 const jobs = [
     { id: 1, title: "Neuro-Hacker", salary: 5000, integrity: 75 },

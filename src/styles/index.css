@@ -1,35 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Cyberpunk Core Styles */
+:root {
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+  --neon-cyan: #00ffef;
+  --dark-bg: #0a0a0a;
+  --cyber-black: #000;
+}
+
 body {
-  @apply bg-dark-bg text-white;
+  background-color: var(--dark-bg) !important;
+  color: var(--neon-cyan) !important;
   font-family: 'Orbitron', sans-serif;
 }
 
-/* Grid Background */
-.grid-bg {
-  background-image:
-          linear-gradient(var(--neon-blue) 1px, transparent 1px),
-          linear-gradient(90deg, var(--neon-blue) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.1;
+/* Header */
+.header {
+  background-color: var(--cyber-black) !important;
+  border-bottom: 2px solid var(--neon-pink) !important;
 }
 
-/* Cyber Orb */
-.cyber-orb {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, var(--neon-blue), var(--neon-pink));
-  border-radius: 50%;
-  box-shadow:
-          0 0 20px var(--neon-blue),
-          0 0 40px var(--neon-pink);
-  animation: pulse 2s infinite;
+.header__logo {
+  filter: drop-shadow(0 0 8px var(--neon-blue));
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+.header__search {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border: 1px solid var(--neon-blue) !important;
+  color: var(--neon-cyan) !important;
 }
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(
+          160deg,
+          rgba(10, 10, 10, 0.95) 0%,
+          rgba(0, 0, 0, 0.95) 100%
+  ) !important;
+  border-right: 2px solid var(--neon-blue) !important;
+}
+
+.sidebar__top > h4 {
+  color: var(--neon-pink) !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
+}
+
+.sidebar__stat {
+  background: rgba(0, 255, 255, 0.05) !important;
+}
+
+/* Feed */
+.feed {
+  background: rgba(10, 10, 10, 0.9) !important;
+  border: 1px solid var(--neon-pink);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.1);
+}
+
+.post {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-cyan) !important;
+}
+
+.post__header > h3 {
+  color: var(--neon-pink) !important;
+}
+
+/* Widgets */
+.widgets {
+  border-left: 2px solid var(--neon-pink);
+  background: linear-gradient(
+          20deg,
+          rgba(10, 10, 10, 0.95) 0%,
+          rgba(0, 0, 0, 0.95) 100%
+  ) !important;
+}
+
+/* Interactive Elements */
+button, .MuiButton-root {
+  transition: all 0.3s ease !important;
+}
+
+button:hover, .MuiButton-root:hover {
+  filter: drop-shadow(0 0 8px var(--neon-pink));
+}
+
+.inputOption {
+  border: 1px solid rgba(0, 255, 255, 0.2) !important;
+}
+
+.inputOption:hover {
+  background: rgba(255, 0, 255, 0.05) !important;
+}
+
+/* CRT Overlay */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.15) 0px,
+          rgba(0, 0, 0, 0.15) 1px,
+          transparent 1px,
+          transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+  opacity: 0.2;
+}
+
+/* Animations */
+@keyframes glitch {
+  0% { text-shadow: 2px 2px var(--neon-blue), -2px -2px var(--neon-pink); }
+  20% { text-shadow: -3px 3px var(--neon-blue), 3px -3px var(--neon-pink); }
+  40% { text-shadow: 3px -3px var(--neon-blue), -3px 3px var(--neon-pink); }
+  60% { text-shadow: -2px -2px var(--neon-blue), 2px 2px var(--neon-pink); }
+  80% { text-shadow: 3px 3px var(--neon-blue), -3px -3px var(--neon-pink); }
+  100% { text-shadow: 2px 2px var(--neon-blue), -2px -2px var(--neon-pink); }
+}
+
+.glitch-text {
+  animation: glitch 3s infinite;
+}
+
